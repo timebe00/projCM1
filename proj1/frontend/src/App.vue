@@ -4,14 +4,14 @@
               <v-toolbar-title @click="$router.push('/')">Collapsing Bar</v-toolbar-title>
               <v-spacer></v-spacer>
               <v-btn id="Log" @click="$router.push('/login')" v-if="id === ''">로그인/회원가입</v-btn>
-              <v-btn id="Log" v-else>로그아웃</v-btn>
+              <v-btn id="Log" v-else v-on:click="logout()">로그아웃</v-btn>
       </v-app-bar>
       <router-view/>
   </v-main>
 </template>
 
 <script>
-import {mapState} from 'vuex'
+import {mapState, mapActions} from 'vuex'
 
 export default {
   name: "App",
@@ -23,8 +23,10 @@ export default {
     //
   }),
   methods: {
+    ...mapActions(['getId']),
     logout() {
         console.log("id : " + this.id)
+        this.getId('')
     }
   },
   computed: {
