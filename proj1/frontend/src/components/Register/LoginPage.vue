@@ -3,10 +3,10 @@
         <h1>로그인</h1>
         <br/><br/>
         <v-row>
-            <v-text-field placeholder="id"/>
+            <v-text-field placeholder="id" v-model="id"/>
         </v-row>
         <v-row>
-            <v-text-field placeholder="password"/>
+            <v-text-field placeholder="password" v-model="pw"/>
         </v-row>
         <v-row>
             <v-col><v-btn>로그인</v-btn></v-col>
@@ -19,7 +19,11 @@
 <script>
 export default {
   name: "LoginPage",
-  components: {
+  data() {
+    return {
+        id: "",
+        pw: ""
+    }
   }
 };
 </script>
