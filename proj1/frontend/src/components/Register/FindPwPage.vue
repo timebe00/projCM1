@@ -6,9 +6,9 @@
         <v-text-field placeholder="이름" v-model="name"/>
     </v-row>
     <v-row>
-        <v-text-field placeholder="id"/>
+        <v-text-field placeholder="id" v-model="id"/>
     </v-row>
-    <v-radio-group v-model="pwphn">
+    <v-radio-group v-model="pho">
         <v-row>
             <v-col><v-radio label="KT" value="kt" v-on:click="Mklog()"/></v-col>
             <v-col><v-radio label="SKT" value="skt" v-on:click="Mklog()"/></v-col>
@@ -16,11 +16,11 @@
         </v-row>
     </v-radio-group>
     <v-row>
-        <v-text-field placeholder="전화번호" v-model="number"/>
+        <v-text-field placeholder="전화번호" v-model="ph"/>
     </v-row>
     <v-row>
-        <v-col><v-btn v-on:click="Fpw()">비밀번호 찾기</v-btn></v-col>
-        <v-col><v-btn @click="$router.push('/login')">취소</v-btn></v-col>
+        <v-col><v-btn v-on:click="Fpw(name, id, pho, ph)">비밀번호 찾기</v-btn></v-col>
+        <v-col><v-btn @click="$router.push('/login')">로그인</v-btn></v-col>
     </v-row>
   </div>
 </template>
@@ -29,8 +29,8 @@
 export default {
   name: "FindPwPage",
   methods: {
-    Fpw() {
-        this.$emit('findpw',{})
+    Fpw(name, id, pho, ph) {
+        this.$emit('findpw',{name, id, pho, ph})
     },
     Mklog() {
         console.log(this.pwphn)
@@ -38,9 +38,10 @@ export default {
   },
   data () {
     return {
-        pwphn: "",
+        pho: "",
         name: "",
-        number: ""
+        ph: "",
+        id: ""
     }
   }
 };

@@ -1,9 +1,10 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
-import Login from "../views/Register/Login.vue";
-import Register from "../views/Register/Register.vue";
-import Find from "../views/Register/Find.vue";
+import Home from "@/views/Home.vue";
+import Login from "@/views/Register/Login.vue";
+import Register from "@/views/Register/Register.vue";
+import Find from "@/views/Register/Find.vue";
+import Reset from "@/views/Register/Reset.vue";
 
 Vue.use(VueRouter);
 
@@ -27,6 +28,16 @@ const routes = [
     path: "/login/find",
     name: "Find",
     component: Find
+  },
+  {
+    path: "/login/reset",
+    name: "Reset",
+    components: {
+        default:Reset
+    },
+    props: {
+        default: true
+    }
   }
 ];
 

@@ -1,7 +1,12 @@
 package com.example.proj1.service;
 
-import org.springframework.stereotype.Service;
+import com.example.proj1.entity.Register;
 
-@Service
-public class RegisterService {
+public interface RegisterService {
+    public Boolean same(Register register) throws Exception;
+    public void register(Register register) throws Exception;
+    public String login(Register register) throws Exception;
+    public String findid(Register register) throws Exception;
+    public Boolean findpw(Register register) throws Exception;
+    public void  reset(Register register) throws Exception;
 }

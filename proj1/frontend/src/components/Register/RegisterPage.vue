@@ -10,13 +10,13 @@
             <v-text-field placeholder="id" v-model="id"/>
         </v-col>
         <v-col>
-            <v-btn>중복확인</v-btn>
+            <v-btn v-on:click="bolsame()">중복확인</v-btn>
         </v-col>
     </v-row>
     <v-row>
-        <v-text-field placeholder="password" v-model="pw"/>
+        <v-text-field placeholder="password" v-model="pw" type="password"/>
     </v-row>
-    <v-radio-group v-model="regphn">
+    <v-radio-group v-model="pho">
         <v-row>
             <v-col><v-radio label="KT" value="kt"/></v-col>
             <v-col><v-radio label="SKT" value="skt"/></v-col>
@@ -24,10 +24,10 @@
         </v-row>
     </v-radio-group>
     <v-row>
-        <v-text-field placeholder="전화번호" v-model="number"/>
+        <v-text-field placeholder="전화번호" v-model="pn"/>
     </v-row>
     <v-row>
-        <v-col><v-btn>확인</v-btn></v-col>
+        <v-col><v-btn v-on:click="OKreg">확인</v-btn></v-col>
         <v-col>
         </v-col>
         <v-col><v-btn @click="$router.push('/login')">취소</v-btn></v-col>
@@ -43,10 +43,20 @@ export default {
         name: "",
         id: "",
         pw: "",
-        regphn: "",
-        number: ""
+        pho: "",
+        pn: ""
     }
-  }
+  },
+  methods: {
+      bolsame () {
+         const id = this.id
+         this.$emit('idsame',{id})
+      },
+      OKreg () {
+        const {name, id, pw, pho, pn} = this
+        this.$emit('reg', {name, id, pw, pho, pn})
+      }
+    },
 };
 </script>
 <style>
