@@ -1,20 +1,18 @@
 <template>
-  <div>
+  <div class="mainbs">
+    <home-page/>
   </div>
 </template>
 
 <script>
-import {mapState} from 'vuex'
+import HomePage from '@/components/HomePage.vue'
 
 export default {
   name: "Home",
   components: {
+    HomePage
   },
   mounted() {
-    console.log('id : ' + this.id)
-  },
-  computed: {
-    ...mapState(["id"])
   }
 };
 </script>
