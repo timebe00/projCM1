@@ -8,7 +8,7 @@
       v-model="txt"
     ></v-textarea>
     <v-col>
-        <v-btn id="okbtn" v-on:click="savetxt()">확인</v-btn>
+        <v-btn id="okbtn" v-on:click="savetxt(title, txt)">확인</v-btn>
         <v-btn id="cnbtn" v-on:click="$router.push('/')">취소</v-btn>
     </v-col>
   </div>
@@ -20,17 +20,21 @@ import {mapState} from 'vuex'
 export default {
   name: "WritePage",
   methods: {
-    ...mapState(['id']),
-    savetxt() {
-        const {id, title, txt} = this
+    savetxt(title, txt) {
+        console.log("title : " + this.title)
+        const id = this.id
+        console.log(id)
         this.$emit('save',{title, txt, id})
     }
   },
   data() {
     return {
-        write: "",
+        title: "",
         txt: ""
     }
+  },
+  computed: {
+    ...mapState(['id'])
   }
 };
 </script>

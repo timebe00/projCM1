@@ -1,6 +1,6 @@
 <template>
-  <div class="mainbs" @save="save">
-    <write-page/>
+  <div class="mainbs">
+    <write-page @save="save"/>
   </div>
 </template>
 
@@ -16,12 +16,11 @@ export default {
   },
   methods: {
     save(payload) {
+        console.log("echo")
          axios.post('http://localhost:1234/board/save', payload)
              .then(res => {
                  console.log("res : " + res.status)
                  if(res.status == 200) {
-                     console.log(res.data)
-                     this.getId(res.data)
                      router.push('/')
                  }
              })

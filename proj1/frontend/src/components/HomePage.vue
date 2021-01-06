@@ -3,22 +3,31 @@
     <v-btn v-if="id!=''" v-on:click="$router.push('/write')" id="wrbtn">글쓰기</v-btn>
     <v-data-table
         :headers="headers"
-        :items="desserts"
+        :items="list"
         :items-per-page="15"
         class="elevation-1"
+        v-on:click="cllist"
       ></v-data-table>
   </div>
 </template>
 
 <script>
 import {mapState} from 'vuex'
+import axios from 'axios'
 
 export default {
   name: "HomePage",
   components: {
   },
-  mounted() {
-    console.log('id : ' + this.id)
+  async mounted() {
+    await axios.post('http://localhost:1234/board/show')
+        .then(res => {
+            console.log(res.data)
+            this.list = res.data
+        })
+        .catch(err => {
+            alert("에러 : " + err)
+        })
   },
   computed: {
     ...mapState(["id"]),
@@ -28,7 +37,7 @@ export default {
             text: 'No',
             sortable: false,
             width: '5%',
-            value: 'boardno'
+            value: 'boardNo'
           },
           {
             text: '제목',
@@ -49,6 +58,11 @@ export default {
             value: 'id'
           }
         ]
+      }
+  },
+  data() {
+      return {
+        list: []
       }
   }
 };
