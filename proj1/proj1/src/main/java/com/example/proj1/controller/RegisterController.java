@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/register")
 @CrossOrigin(origins = "http://localhost:8080", allowedHeaders = "*")
 @Controller
-public class RegisterConter {
+public class RegisterController {
     @Autowired
     private RegisterService service;
 

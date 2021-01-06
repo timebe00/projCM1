@@ -6,6 +6,9 @@ import Register from "@/views/Register/Register.vue";
 import Find from "@/views/Register/Find.vue";
 import Reset from "@/views/Register/Reset.vue";
 
+import Show from "@/views/QNA/Show.vue";
+import Write from "@/views/QNA/Write.vue";
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -38,7 +41,17 @@ const routes = [
     props: {
         default: true
     }
-  }
+  },
+  {
+    path: "/show",
+    name: "Show",
+    component: Show
+  },
+  {
+    path: "/write",
+    name: "Write",
+    component: Write
+  },
 ];
 
 const router = new VueRouter({
