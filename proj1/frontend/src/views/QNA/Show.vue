@@ -1,6 +1,6 @@
 <template>
   <div class="mainbs">
-    <show-page/>
+    <show-page v-bind:boardNo="boardNo"/>
   </div>
 </template>
 
@@ -13,6 +13,10 @@ export default {
     ShowPage
   },
   mounted() {
-  }
+    console.log("boardNo Show : " + this.boardNo)
+  },
+  props: {
+      boardNo: Number
+  },
 };
 </script>

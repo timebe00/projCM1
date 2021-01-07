@@ -1,5 +1,7 @@
 package com.example.proj1.service;
 
+import com.example.proj1.entity.Register;
+import com.example.proj1.repository.RegisterRepository;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -6,14 +6,18 @@
         :items="list"
         :items-per-page="15"
         class="elevation-1"
-        v-on:click="cllist"
-      ></v-data-table>
+      >
+      <template v-slot:item.title="{ item }">
+        <div @click="cllist(item.boardNo)">{{ item.title }}</div>
+      </template>
+      </v-data-table>
   </div>
 </template>
 
 <script>
 import {mapState} from 'vuex'
 import axios from 'axios'
+import router from '@/router'
 
 export default {
   name: "HomePage",
@@ -64,6 +68,12 @@ export default {
       return {
         list: []
       }
+  },
+  methods: {
+    cllist(boardNo) {
+        console.log("boardNo : " + boardNo)
+        router.push({ name: 'Show', params: { boardNo: boardNo} })
+    }
   }
 };
 </script>

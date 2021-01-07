@@ -5,7 +5,7 @@ import lombok.*;
 
 import javax.persistence.*;
 
-@JsonIgnoreProperties(value="hibernateLazyInitializer")
+@JsonIgnoreProperties(value = "hibernateLazyInitializer")
 @Data
 @EqualsAndHashCode(of = "boardNo")
 @ToString
@@ -14,18 +14,19 @@ import javax.persistence.*;
 public class Board {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "boardno")
+    @Column(name = "boardno", nullable = false)
     private Long boardNo;
 
-    @Column(name = "title", nullable = false, columnDefinition = "TEXT")
+    @Column(name = "title", nullable = false)
     private String title;
 
     @Column(name = "views", nullable = false)
     private int views = 0;
 
-    @Column(name= "id", nullable = false)
+    @Column(name = "id")
     private String id;
 
-    @Column(name = "txt", nullable = false, columnDefinition = "TEXT")
+    @Column(name = "txt", columnDefinition = "TEXT")
     private String txt;
+
 }
