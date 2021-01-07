@@ -99,7 +99,7 @@ export default {
 }
 #shbtn {
     margin-top: 15px;
-    margin-left: 50%
+    margin-left: 1350px
 }
 #comment {
     margin-top: 30px;

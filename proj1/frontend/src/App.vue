@@ -1,7 +1,7 @@
 <template>
   <v-main>
       <v-app-bar absolute dark>
-              <v-toolbar-title @click="$router.push('/')">Collapsing Bar</v-toolbar-title>
+              <v-toolbar-title @click="$router.push('/')">QNA</v-toolbar-title>
               <v-spacer></v-spacer>
               <v-btn id="Log" @click="$router.push('/login')" v-if="id === ''">로그인/회원가입</v-btn>
               <v-btn id="Log" v-else v-on:click="logout()">로그아웃</v-btn>
