@@ -14,7 +14,7 @@
         </v-col>
     </v-row>
     <v-row>
-        <v-text-field placeholder="password" v-model="pw" type="password"/>
+        <v-text-field placeholder="특수기호(@#^&만 가능) 2개 이상 사용" v-model="pw" type="password"/>
     </v-row>
     <v-radio-group v-model="pho">
         <v-row>

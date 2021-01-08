@@ -31,8 +31,12 @@ public class RegisterController {
 
     @PostMapping("/register")
     public ResponseEntity register(@RequestBody Register register) throws Exception {
-        service.register(register);
-        return new ResponseEntity(HttpStatus.OK);
+        boolean TF = service.register(register);
+        if(TF) {
+            return new ResponseEntity(HttpStatus.OK);
+        } else {
+            return new ResponseEntity(HttpStatus.NO_CONTENT);
+        }
     }
 
     @PostMapping("/login")
