@@ -31,7 +31,7 @@ public class RegisterServicelmpl implements RegisterService{
         if(register.getName().length() > 1 && register.getId().length() > 3 &&
                 register.getPw().length() > 7  && register.getPh().length() > 8 &&
                 Pattern.matches("^.*(([@#^&])+){2}.*$",register.getPw()) &&
-                !Pattern.matches("^.*((^[!$%*(),.?\":{}|<>])+).*$",register.getPw()) &&
+                !Pattern.matches("^.*(([!$%*(),.?\":{}|<>])+).*$",register.getPw()) &&
                 Pattern.matches("^[0-9]*$",String.valueOf(register.getPn()))
         ) {
             repository.save(register);
