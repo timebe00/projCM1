@@ -1,6 +1,5 @@
 package com.example.proj1.controller;
 
-import com.example.proj1.service.CommentService;
 import lombok.extern.java.Log;
 import com.example.proj1.entity.Board;
 import com.example.proj1.service.BoardService;

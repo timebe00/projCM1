@@ -23,10 +23,10 @@ public class Board {
     @Column(name = "views", nullable = false)
     private int views = 0;
 
-    @Column(name = "id")
+    @Column(name = "id", nullable = false)
     private String id;
 
-    @Column(name = "txt", columnDefinition = "TEXT")
+    @Column(name = "txt", columnDefinition = "TEXT", nullable = false)
     private String txt;
 
 }
