@@ -38,7 +38,6 @@ export default {
     console.log("boardNo : " + boardNo)
     await axios.post('http://localhost:1234/board/showtxt', {boardNo})
         .then(res => {
-            console.log(res.data)
             this.title = res.data.title
             this.txt = res.data.txt
             for(let i=0; i<res.data.comNo.length; i++) {
@@ -66,10 +65,8 @@ export default {
     },
     oktxt() {
         const {comtxt, id, boardNo} = this
-        console.log("comtxt : " + comtxt + "  id : " + id + "  boardNo : " + boardNo)
         axios.post('http://localhost:1234/comment/save', {comtxt, id, boardNo})
             .then(res => {
-                console.log(res.data)
                 this.list.push({comNo: res.data.comNo, comId: res.data.id, comTxtarry: res.data.comtxt})
                 this.comtxt = ""
             })

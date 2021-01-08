@@ -6,8 +6,7 @@
 
 <script>
 import ResetPage from '@/components/Register/ResetPage.vue'
-import axios from 'axios'
-import router from '@/router'
+import {mapActions} from 'vuex'
 
 export default {
   name: "Reset",
@@ -15,21 +14,9 @@ export default {
     ResetPage
   },
   methods: {
-  setup(payload) {
-      console.log(payload)
-      axios.post('http://localhost:1234/register/reset', payload)
-        .then(res => {
-          console.log("res : " + res.status)
-          if(res.status == 200) {
-              alert("로그인 해 주세요")
-              router.push("/login")
-          } else {
-              alert("오류")
-          }
-        })
-        .catch(err => {
-          alert("에러 : " + err)
-        })
+    ...mapActions(['resetpw']),
+    setup(payload) {
+      this.resetpw(payload)
     }
   },
   props: {

@@ -26,7 +26,6 @@ export default {
   async mounted() {
     await axios.post('http://localhost:1234/board/show')
         .then(res => {
-            console.log(res.data)
             this.list = res.data
         })
         .catch(err => {
